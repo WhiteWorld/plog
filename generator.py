@@ -143,11 +143,14 @@ app.jinja_env.globals['url_for_other_page'] = url_for_other_page
 
 
 @app.route('/',defaults={'page':1})
-@app.route('/page/<int:page>')
+@app.route('/page/<int:page>/')
 def index(page):
     pagination = Pagination(page,PER_PAGE,len(blog.posts))
     posts=[p for i,p in enumerate(blog.posts) if i >= (page-1)*PER_PAGE and i < page*PER_PAGE]
     return render_template('index.html', posts=posts,pagination=pagination)
+
+# @freezer.register_generator
+# def index()
 
 @app.route('/<path:path>/')
 def post(path):
