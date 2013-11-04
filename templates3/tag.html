@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>含有<em>{{ tag }}</em>的文章</h3>
+    {% with posts=posts  %}
+        {% include "_list.html" %}
+    {% endwith %}
+{% endblock content %}

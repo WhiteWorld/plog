@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>{{ post.title }}
+    {% if post.subtitle %}: 
+    {{ post.subtitle }}
+    {% endif %}
+    </title>
+{% endblock head %}
+
+{% block content %}
+    <!-- Header -->
+        <h1>{{ post.title }}</h1>
+        {% if post.subtitle %}
+            <h2>{{ post.subtitle }}</h2>
+        {% endif %}
+        <i class='icon-time'></i>&nbsp;<em>{{ post.date|date}}</em>
+            &nbsp;&nbsp;&nbsp;&nbsp;<i class='icon-tags'></i>
+            {% for tag in post.tags %}
+                {% if tag %}
+                  <a href="{{ url_for('tag',tag=tag)}}"><em>{{ tag }}</em></a>
+                {% endif %}
+            {% endfor%}
+
+    <!-- Content -->
+        {{ post.html|safe }}
+{% endblock content %}
