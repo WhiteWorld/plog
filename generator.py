@@ -149,8 +149,7 @@ def index(page):
     posts=[p for i,p in enumerate(blog.posts) if i >= (page-1)*PER_PAGE and i < page*PER_PAGE]
     return render_template('index.html', posts=posts,pagination=pagination)
 
-# @freezer.register_generator
-# def index()
+
 
 @app.route('/<path:path>/')
 def post(path):
@@ -158,22 +157,11 @@ def post(path):
     return render_template('post.html', post=post)
 
 
-# @freezer.register_generator
-# def post():
-#     for post in blog.posts:
-#         #import pdb; pdb.set_trace()
-#         yield {'path': 'hello'}
-
 @app.route('/tag/<string:tag>/')
 def tag(tag):
     tagged = [p for p in blog.posts if tag in p.tags]
     return render_template('tag.html', posts=tagged, tag=tag)
 
-# @freezer.register_generator
-# def tag():
-#     for i in xrange(4):
-#     #for tag in [tag for p in blog.posts for tag in p.tags]:
-#         yield {'tag':'list'}
 
  
 @app.route('/tags/')
@@ -204,12 +192,11 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
         freezer.freeze()
         #import pdb; pdb.set_trace()
-        #freezer.run(debug=True)
     elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
         freezer.freeze()
         deploy('build')
     else:
         #import pdb; pdb.set_trace()
         post_files = [post.filepath for post in blog.posts]
-        app.run(port=8000, debug=True, extra_files=post_files)
+        app.run(port=8001, debug=True, extra_files=post_files)
         

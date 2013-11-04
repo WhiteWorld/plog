@@ -1,4 +1,4 @@
 newblog
 =======
 
-new static blog based on flask
+new static blog based on flask&&bootstrap
