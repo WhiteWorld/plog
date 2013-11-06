@@ -4,6 +4,7 @@ title: "台球"
 description: ""
 category: "娱乐"
 tags: [台球,玩]
+published: true
 
 这周实验室活动是打台球，团了4张券。由于就我和师兄俩人去，所以就用了1张，打了大概3个小时。
 

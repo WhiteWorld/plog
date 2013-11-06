@@ -4,6 +4,7 @@ title: "Kindle使用技巧"
 description: ""
 category: "随笔"
 tags: [kindle, 技巧]
+published: true
 
 All about Kindle
 ================

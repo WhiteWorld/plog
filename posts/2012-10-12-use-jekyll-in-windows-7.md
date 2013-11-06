@@ -4,6 +4,7 @@ title: "在Windows下使用jekyll发博客"
 description: ""
 category: "学习"
 tags: [jekyll, MarkdownPad]
+published: true
 
 这篇blog就是在Windows下发布的。  
 环境是：Windows 7 + ruby + jekyll + MarkdownPad + git  

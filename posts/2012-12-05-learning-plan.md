@@ -4,6 +4,7 @@ title: "学习计划"
 description: ""
 category: "学习"
 tags: [学习, 计划, 啊]
+published: true
 
 今晚听了一个讲座。演讲人一个是工作了几年的学长，另一个是刚拿了facebook offer的研三学长。从他们的经历中，我发现自己太菜了，所以要好好用功了。
 

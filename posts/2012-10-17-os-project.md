@@ -4,6 +4,7 @@ title: "OS Project"
 description: ""
 category: "学习"
 tags: [OS, Linux kernel]
+published: true
 
 ## SECTION 1
 操作系统课要做一个presentation和报告。要求对Linux源码某一部分分析。我要对内存管理这一块进行分析。

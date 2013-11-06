@@ -4,6 +4,7 @@ title: "近期购物单"
 description: ""
 category: "随笔"
 tags: "购物"
+published: true
 
 实验室终于<del>**要**</del>发钱了，主要是暑假的住宿费报销+暑期工资，加在一起还是  
 有点可观。So，手痒了。

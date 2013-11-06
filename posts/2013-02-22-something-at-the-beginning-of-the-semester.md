@@ -4,6 +4,7 @@ title: "2013春季开学"
 description: ""
 category: "随笔"
 tags: [学习, 计划]
+published: true
 
 上学期的作业：
 

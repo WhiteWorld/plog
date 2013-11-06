@@ -4,6 +4,7 @@ title: "Windows Software"
 description: ""
 category: "随笔"
 tags: [PC, 软件, list, app]
+published: true
 
 ## 基本
 - Foxi Reader

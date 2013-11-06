@@ -4,6 +4,7 @@ title: "Learning Ruby on Rails 1"
 description: ""
 category: "学习"
 tags: [ROR, ruby, rails]
+published: true
 
 1. **Install Ruby,Rails**
 -----------------

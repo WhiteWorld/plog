@@ -4,6 +4,7 @@ title: "读书笔记--乌合之众"
 description: ""
 category: "读书笔记"
 tags: [读书, 笔记]
+published: true
 
 《乌合之众》  
 作者：（法）古斯塔夫.勒庞  

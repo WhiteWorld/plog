@@ -4,6 +4,7 @@ title: "春节做点事"
 description: ""
 category: "学习"
 tags: [学习, 娱乐, 春节, 啊]
+published: true
 
 参照上次的[学习计划](http://whiteworld.tk/%E5%AD%A6%E4%B9%A0/2012/12/05/learning-plan/)制定
 

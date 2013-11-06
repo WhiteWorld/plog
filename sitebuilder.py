@@ -5,7 +5,7 @@ from flask import Flask, render_template,request,url_for
 from flask_frozen import Freezer
 from Pagination import Pagination
 
-DEBUG = True
+# DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 

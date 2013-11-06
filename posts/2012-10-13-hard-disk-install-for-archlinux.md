@@ -4,6 +4,7 @@ title: "使用硬盘安装的方法从U盘安装Archlinux"
 description: ""
 category: "学习"
 tags: [archlinux, 硬盘安装]
+published: true
 
 
 ###缘起

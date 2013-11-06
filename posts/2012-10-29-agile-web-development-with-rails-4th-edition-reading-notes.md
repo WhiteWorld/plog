@@ -4,6 +4,7 @@ title: "读书笔记--Agile Web Development with Rails 4th edition"
 description: ""
 category: "读书笔记"
 tags: [读书, 笔记]
+published: true
 
 ##第一章
 

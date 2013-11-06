@@ -4,6 +4,7 @@ title: "IOS App"
 description: ""
 category: "随笔"
 tags: [app, 应用, ios]
+published: true
 
 
 Device：iPod Touch 4

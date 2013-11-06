@@ -4,6 +4,7 @@ title: "Reading List"
 description: ""
 category: "学习"
 tags: [list, 书]
+published: true
 
 - <del> [《话题2012》](http://book.douban.com/subject/21330577/)  </del>  
     计划完成时间：2013.04.01  

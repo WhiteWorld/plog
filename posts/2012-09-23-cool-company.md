@@ -4,6 +4,7 @@ title: "酷公司"
 description: ""
 category: '随笔'
 tags: [酷, 公司, 团队, 啊]
+published: true
 
 总有一天我会有一个
 ---------

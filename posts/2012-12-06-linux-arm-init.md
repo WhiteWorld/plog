@@ -4,6 +4,7 @@ title: "Linux Arm 初始化分析"
 description: ""
 category: "学习"
 tags: [Linux, Arm, 初始化, kernel]
+published: true
 
 [原文在此](http://www.linux-arm.org/LinuxBootLoader/SMPBoot)
 

@@ -4,6 +4,7 @@ title: "中断和异常"
 description: ""
 category: "学习"
 tags: [Linux, 中断, 异常, 笔记]
+published: true
 
 **中断**：异步中断，由外部设备依照CPU时钟信号随机产生。由定时器和I/O设备产生的。
 - 可屏蔽中断

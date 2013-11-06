@@ -4,6 +4,7 @@ title: "并行计算介绍（翻译）"
 description: ""
 category: "学习"
 tags: [computing, parallel]
+published: true
 
 [原文](https://computing.llnl.gov/tutorials/parallel_comp/)
 

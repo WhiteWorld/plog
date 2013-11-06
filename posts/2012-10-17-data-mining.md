@@ -4,6 +4,7 @@ title: "数据挖掘学习笔记兼课程报告"
 description: ""
 category: "学习"
 tags: [数据挖掘, 笔记, 报告]
+published: true
 
 课程报告《改进的加权Slope One协同过滤算法》已完成,如下：
 <iframe src="https://skydrive.live.com/embed?cid=A1E8316CC75B7FBA&resid=A1E8316CC75B7FBA%21442&authkey=AESJsR6CwRt06Uc" width="98" height="120" frameborder="0" scrolling="no"></iframe>

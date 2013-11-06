@@ -4,6 +4,7 @@ title: "计算理论学习笔记兼复习记录"
 description: ""
 category: "学习"
 tags: [计算理论, 复习, 笔记]
+published: true
 
 计算理论关心三个方面的问题
 

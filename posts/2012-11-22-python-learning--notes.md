@@ -4,13 +4,14 @@ title: "Python 笔记"
 description: ""
 category: "学习"
 tags: [Python, 学习]
+published: true
 
 #记录关于Python的相关笔记
 ----------
 ##Section 1
 前段时间写《数据挖掘》课的课程报告，凑了一篇烂烂的论文，关于协同滤波算法中Slope One算法的改进的。实验环节使用的是Python。Python不常用，这次用了下次忘所以先记下来吧。直接写在注释里了。
 
-	{% highlight python %}
+	:::python
 	import string #导入string模块
 	class SlopeOne(object):
 	    def __init__(self):
@@ -106,7 +107,8 @@ tags: [Python, 学习]
 	{% endhighlight %}
 
 相应的Matlab画图代码，跑题了。。
-	{% highlight matlab %}
+	
+	:::matlab
 	a=[0.709435096154 0.700410739331 0.700460829493 0.70114654784 0.701763173713];
 	t=[0.710486778846 0.699358845923 0.700811460629 0.702698643168 0.703265878581];
 	z=[0.708383413462 0.699208575436 0.700410739331 0.701697291343 0.702464435985];

@@ -4,6 +4,7 @@ title: "第一次毅行"
 description: ""
 category: "娱乐"
 tags: [毅行]
+published: true
 
 这是我第一次毅行。  
 这次毅行是浙大校友会组织举办的，单单从校友网站的报名上看有1248人！人数算够多的了。

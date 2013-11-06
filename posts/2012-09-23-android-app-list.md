@@ -4,6 +4,7 @@ title: "Android App"
 description: ""
 category: '随笔'
 tags: [Android, 应用, 手机, app]
+published: true
 
 <del> 打开我的国产山寨吊丝手机--华为U8500，发现上面在用的有这几个APP </del>
 

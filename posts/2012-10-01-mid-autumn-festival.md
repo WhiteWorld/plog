@@ -4,6 +4,7 @@ title: "中秋国庆流水帐"
 description: ""
 category: "随笔"
 tags: [中秋节, 国庆节]
+published: true
 
 今年中秋节是9月30号跟国庆接上了，所以我们的假期就成了**7+3=8**天。
 

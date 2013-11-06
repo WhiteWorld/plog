@@ -14,7 +14,7 @@ import codecs
 
 from Pagination import Pagination
 
-DEBUG = True
+# DEBUG = True
 DOMAIN = 'christopherroach.com'
 AWS_ACCESS_KEY_ID = 'AKIAITJVH6MYKPD2RO3Q'
 AWS_SECRET_ACCESS_KEY = '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'
@@ -23,7 +23,7 @@ PER_PAGE = 10
 
 FREEZER_DESTINATION = '../newblog'
 FREEZER_DESTINATION_IGNORE=['.git*', 'CNAME']
-FREEZER_BASE_URL='/newblog/'
+FREEZER_BASE_URL='http://whiteworld.github.io/newblog/'
 
 
 class SortedDict(collections.MutableMapping):

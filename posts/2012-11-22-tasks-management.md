@@ -4,6 +4,7 @@ title: "个人时间管里"
 description: ""
 category: "学习"
 tags: [GTD, 时间管理, 日程安排]
+published: true
 
 GTD是个很宏大的话题。方案因人而异。这里记录一下我现在使用的方案。
 

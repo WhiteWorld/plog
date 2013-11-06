@@ -4,6 +4,7 @@ title: "Slope One算法的Python实现"
 description: ""
 category: "学习"
 tags: [slope one, python]
+published: true
 
 关于基于项目评价数量的加权的Slope One算法，Bryan O'Sullivan在2006年有个Python实现。使用迭代开发的方法，首先在该程序的基础上进行基于项目评价的加权的Slope One算法。然后整合两种加权算法实现，得到最终的改进算法实现。
 

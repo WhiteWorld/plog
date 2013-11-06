@@ -4,6 +4,7 @@ title: "Learning Ruby on Rails 0"
 description: ""
 category: "学习"
 tags: [ROR, ruby, rails]
+published: true
 
 目的：
 ------
