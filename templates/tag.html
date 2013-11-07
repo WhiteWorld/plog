@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h3>含有<em>{{ tag }}</em>的文章</h3>
+    <h3>含有<span class="label label-inverse"><em>{{ tag }}</em></span>的文章</h3>
     {% with posts=posts  %}
         {% include "_list.html" %}
     {% endwith %}

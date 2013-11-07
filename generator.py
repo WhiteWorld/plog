@@ -86,6 +86,22 @@ class Blog(object):
         except KeyError:
             abort(404)
 
+    def get_next_pre_or_404(self,path):
+        try:
+            keys=self._cache.keys()
+            items=self._cache.items()
+            index = items.index((path,self._cache[path]))
+            #keys[index+1]
+
+            #import pdb; pdb.set_trace()
+            if index == len(keys)-1:
+                return self._cache[keys[index]],self._cache[keys[index-1]]
+            if index == 0:
+                return self._cache[keys[index+1]],self._cache[keys[index]]
+            return self._cache[keys[index+1]],self._cache[keys[index-1]]
+        except KeyError:
+            abort(404)
+
     def _initialize_cache(self):
         """Walks the root directory and adds all posts to the cache
         """
@@ -154,7 +170,9 @@ def index(page):
 @app.route('/<path:path>/')
 def post(path):
     post = blog.get_post_or_404(path)
-    return render_template('post.html', post=post)
+    next,pre = blog.get_next_pre_or_404(path)
+    #import pdb; pdb.set_trace()
+    return render_template('post.html', post=post,next=next,pre=pre)
 
 
 @app.route('/tag/<string:tag>/')
@@ -198,5 +216,5 @@ if __name__ == '__main__':
     else:
         #import pdb; pdb.set_trace()
         post_files = [post.filepath for post in blog.posts]
-        app.run(port=8001, debug=True, extra_files=post_files)
+        app.run(port=8002, debug=True, extra_files=post_files)
         
