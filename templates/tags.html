@@ -2,8 +2,8 @@
 
 {% block content %}
     <h2>List of Tags </h2>
-    {% for tag in tags %}
-     <a href="{{ url_for("tag", tag=tag) }}"><span class="label label-inverse"><em>{{ tag }}</em></span></a>
+    {% for tag,cnt in tags %}
+     <a href="{{ url_for("tag", tag=tag) }}"><span class="label label-success">{{ tag }}</span><span class="badge"><em>{{cnt}}</em></span></a>
     {% endfor %}
 
 {% endblock content %}

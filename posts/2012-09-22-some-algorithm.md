@@ -3,7 +3,7 @@ layout: post
 title: "算法记录"
 description: 
 category: "学习"
-tags: "Algorithm"
+tags: [Algorithm]
 published: true
 
 图算法

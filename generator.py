@@ -185,7 +185,10 @@ def tag(tag):
 @app.route('/tags/')
 def tags():
     tags=[tag for p in blog.posts for tag in p.tags]
-    tags=list(set(tags))
+    tags=collections.Counter(tags)
+    #tags=list(set(tags))
+    tags=sorted(tags.iteritems(),key=lambda d:d[1],reverse=True)
+    #import pdb; pdb.set_trace()
     return render_template('tags.html',tags=tags)
 
 @app.route('/feed.atom')
@@ -216,5 +219,5 @@ if __name__ == '__main__':
     else:
         #import pdb; pdb.set_trace()
         post_files = [post.filepath for post in blog.posts]
-        app.run(port=8002, debug=True, extra_files=post_files)
+        app.run(port=8004, debug=True, extra_files=post_files)
         

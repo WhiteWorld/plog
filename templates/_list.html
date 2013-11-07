@@ -7,7 +7,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;<i class='icon-tags'></i>
             {% for tag in post.tags %}
             	{% if tag %}
-            	  <a href="{{ url_for('tag',tag=tag)}}"><span class="label label-inverse"><em>{{ tag }}</em></span></a>
+            	  <a href="{{ url_for('tag',tag=tag)}}"><span class="label"><em>{{ tag }}</em></span></a>
             	{% endif %}
             {% endfor%}
         </li>
