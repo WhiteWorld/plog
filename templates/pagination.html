@@ -10,7 +10,7 @@
 
   {% for page in pagination.iter_pages() %}
     {% if page %}
-    <li>
+    <li class="page">
         <a href="{{ url_for_other_page(page) }}">{{ page }}</a>
       </li>
 

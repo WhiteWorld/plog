@@ -1,25 +1,21 @@
 {% extends "base.html" %}
 
-
-
 {% block content %}
-    {% with posts=posts  %}
+
+    {% for year in archives%}
+    <h2>{{ year }}</h2>
+    {% with posts=archives[year]  %}
         {% include "_list.html" %}
     {% endwith %}
+    {% endfor %}
 {% endblock%}
-
-
 
 {% block tab%}
  <script type="text/javascript">
- var page={{cur_page}};
- //alert(page);
- page=page-1;
 $(document).ready(function() {
   //alert("ha");
   $('ul.mytab li').removeClass();
-    $('ul.mytab li:first').addClass('active');
-    $('li.page:eq('+page+')').addClass('active');
+    $('ul.mytab li:last').addClass('active');
 });
  </script>
 {% endblock %}

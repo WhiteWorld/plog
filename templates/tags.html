@@ -7,3 +7,12 @@
     {% endfor %}
 
 {% endblock content %}
+{% block tab%}
+ <script type="text/javascript">
+$(document).ready(function() {
+
+  $('ul.mytab li').removeClass();
+    $('ul.mytab li:eq(1)').addClass('active');
+});
+ </script>
+{% endblock %}

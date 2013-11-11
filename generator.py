@@ -4,7 +4,7 @@ import collections
 
 import boto
 from boto.s3.key import Key
-from flask import Flask, render_template, url_for, abort, request
+from flask import Flask, render_template, url_for, abort, request,redirect
 from flask.ext.frozen import Freezer
 from werkzeug import cached_property
 from werkzeug.contrib.atom import AtomFeed
@@ -163,7 +163,7 @@ app.jinja_env.globals['url_for_other_page'] = url_for_other_page
 def index(page):
     pagination = Pagination(page,PER_PAGE,len(blog.posts))
     posts=[p for i,p in enumerate(blog.posts) if i >= (page-1)*PER_PAGE and i < page*PER_PAGE]
-    return render_template('index.html', posts=posts,pagination=pagination)
+    return render_template('index.html', posts=posts,pagination=pagination,cur_page=page)
 
 
 
@@ -191,6 +191,18 @@ def tags():
     #import pdb; pdb.set_trace()
     return render_template('tags.html',tags=tags)
 
+@app.route('/archive/')
+def archive():
+    #import pdb; pdb.set_trace()
+    archives={}
+    for p in blog.posts:
+        if not archives.has_key(p.date.year):
+             archives[p.date.year]=[]
+        archives[p.date.year].append(p)
+
+    #import pdb; pdb.set_trace()
+    return render_template('archive.html', archives=archives)
+
 @app.route('/feed.atom')
 def feed():
     feed = AtomFeed('Recent Articles',
@@ -208,6 +220,12 @@ def feed():
             published=post.date)
     return feed.get_response()
 
+@app.route('/search/', methods=['GET','POST'])
+def search():
+    if request.method == 'POST':
+        #some = request.
+        pass
+    return redirect('http://www.google.com')
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
@@ -219,5 +237,5 @@ if __name__ == '__main__':
     else:
         #import pdb; pdb.set_trace()
         post_files = [post.filepath for post in blog.posts]
-        app.run(port=8004, debug=True, extra_files=post_files)
+        app.run(port=8000, debug=True, extra_files=post_files)
         

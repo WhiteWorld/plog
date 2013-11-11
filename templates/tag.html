@@ -6,3 +6,12 @@
         {% include "_list.html" %}
     {% endwith %}
 {% endblock content %}
+{% block tab%}
+ <script type="text/javascript">
+$(document).ready(function() {
+  //alert("ha");
+  $('ul.mytab li').removeClass();
+    $('ul.mytab li:eq(1)').addClass('active');
+});
+ </script>
+{% endblock %}
