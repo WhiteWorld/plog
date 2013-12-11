@@ -220,12 +220,12 @@ def feed():
             published=post.date)
     return feed.get_response()
 
-@app.route('/search/', methods=['GET','POST'])
-def search():
-    if request.method == 'POST':
-        #some = request.
-        pass
-    return redirect('http://www.google.com')
+# @app.route('/search/', methods=['GET','POST'])
+# def search():
+#     if request.method == 'POST':
+#         #some = request.
+#         pass
+#     return redirect('http://www.google.com')
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
