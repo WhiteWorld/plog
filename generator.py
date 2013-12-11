@@ -15,13 +15,13 @@ import codecs
 from Pagination import Pagination
 
 # DEBUG = True
-DOMAIN = 'christopherroach.com'
+
 POSTS_FILE_EXTENSION = '.md'
 PER_PAGE = 10
 
 FREEZER_DESTINATION = '../newblog'
 FREEZER_DESTINATION_IGNORE=['.git*', 'CNAME']
-FREEZER_BASE_URL='http://whiteworld.github.io/newblog/'
+FREEZER_BASE_URL='http://whiteworld.github.io/blog/'
 
 
 class SortedDict(collections.MutableMapping):
