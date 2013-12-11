@@ -1,24 +1,24 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    {% block head %}
-    <title>Just a place.</title>
-    {% endblock head %}
+  <meta charset="utf-8">
+  {% block head %}
+  <title>Just a place.</title>
+  {% endblock head %}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% block css %}
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" >
   <link href="{{ url_for('static', filename='css/my.css') }}" rel="stylesheet" >
-    <link href="{{ url_for('static', filename='css/syntax.css') }}" rel="stylesheet" >
+  <link href="{{ url_for('static', filename='css/syntax.css') }}" rel="stylesheet" >
   {% endblock %}
 
-    <!-- Atom Feed -->
-    <link href="{{ url_for('feed') }}"
-      rel="alternate"
-      title="Recent Changes"
-      type="application/atom+xml">
+  <!-- Atom Feed -->
+  <link href="{{ url_for('feed') }}"
+  rel="alternate"
+  title="Recent Changes"
+  type="application/atom+xml">
 </head>
 <body>
   <div id="wrap">
@@ -66,9 +66,9 @@
 
   {% endblock js%}
 
-{% block tab%}
+  {% block tab%}
 
-{% endblock %}
+  {% endblock %}
 
 
   
@@ -78,11 +78,22 @@
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
-    </script>
+  </script>
+
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-46354580-1");
+      pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
 </body>
 </html>
