@@ -16,8 +16,6 @@ from Pagination import Pagination
 
 # DEBUG = True
 DOMAIN = 'christopherroach.com'
-AWS_ACCESS_KEY_ID = 'AKIAITJVH6MYKPD2RO3Q'
-AWS_SECRET_ACCESS_KEY = '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'
 POSTS_FILE_EXTENSION = '.md'
 PER_PAGE = 10
 
