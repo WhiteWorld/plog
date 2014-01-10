@@ -21,7 +21,8 @@ PER_PAGE = 10
 
 FREEZER_DESTINATION = '../newblog'
 FREEZER_DESTINATION_IGNORE=['.git*', 'CNAME']
-FREEZER_BASE_URL='http://whiteworld.github.io/blog/'
+#FREEZER_BASE_URL='http://whiteworld.github.io/blog/'
+FREEZER_BASE_URL='http://blog.whiteworld.me/'
 
 
 class SortedDict(collections.MutableMapping):
