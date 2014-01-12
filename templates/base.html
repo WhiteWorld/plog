@@ -7,6 +7,8 @@
   {% endblock head %}
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
   {% block css %}
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" >

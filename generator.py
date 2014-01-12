@@ -232,7 +232,7 @@ if __name__ == '__main__':
         #import pdb; pdb.set_trace()
     elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
         freezer.freeze()
-        deploy('build')
+        #deploy('build')
     else:
         #import pdb; pdb.set_trace()
         post_files = [post.filepath for post in blog.posts]
