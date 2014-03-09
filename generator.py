@@ -1,29 +1,23 @@
 import os
 import sys
+import platform
 import collections
+import codecs
 
-import boto
-from boto.s3.key import Key
-from flask import Flask, render_template, url_for, abort, request,redirect
+from flask import Flask, render_template, url_for, abort, request
 from flask.ext.frozen import Freezer
 from werkzeug import cached_property
 from werkzeug.contrib.atom import AtomFeed
 import markdown
 import yaml
-import codecs
 
-from Pagination import Pagination
+from helpers import Pagination
+from config import PER_PAGE
 
-# DEBUG = True
 
-POSTS_FILE_EXTENSION = '.md'
-PER_PAGE = 10
-
-FREEZER_DESTINATION = '../newblog'
-FREEZER_DESTINATION_IGNORE=['.git*', 'CNAME']
-#FREEZER_BASE_URL='http://whiteworld.github.io/blog/'
-FREEZER_BASE_URL='http://blog.whiteworld.me/'
-
+is_windows = False
+if platform.system() == 'Windows':
+    is_windows = True
 
 class SortedDict(collections.MutableMapping):
     def __init__(self, items=None, key=None, reverse=False):
@@ -71,7 +65,6 @@ class Blog(object):
 
     @property
     def posts(self):
-        #return self._cache.values()
         if self._app.debug:
             return self._cache.values()
         else:
@@ -90,9 +83,6 @@ class Blog(object):
             keys=self._cache.keys()
             items=self._cache.items()
             index = items.index((path,self._cache[path]))
-            #keys[index+1]
-
-            #import pdb; pdb.set_trace()
             if index == len(keys)-1:
                 return self._cache[keys[index]],self._cache[keys[index-1]]
             if index == 0:
@@ -104,34 +94,41 @@ class Blog(object):
     def _initialize_cache(self):
         """Walks the root directory and adds all posts to the cache
         """
-        for (root, dirpaths, filepaths) in os.walk(self.root_dir):
-            for filepath in filepaths:
-                filename, ext = os.path.splitext(filepath)
+        for (root, dir_paths, file_paths) in os.walk(self.root_dir):
+            for file_path in file_paths:
+                filename, ext = os.path.splitext(file_path)
                 if ext == self.file_ext:
-                    path = os.path.join(root, filepath).replace(self.root_dir, '')
+                    path = os.path.join(root, file_path).replace(self.root_dir, '')
                     post = Post(path, root_dir=self.root_dir)
-                    self._cache[post.urlpath] = post
+                    self._cache[post.url_path] = post
 
 
 class Post(object):
     def __init__(self, path, root_dir=''):
-        self.urlpath = os.path.splitext(path.strip('/'))[0]
-        self.filepath = os.path.join(root_dir, path.strip('/'))
+        if is_windows:
+            self.url_path = os.path.splitext(path.strip('\\'))[0]
+            self.file_path = os.path.join(root_dir, path.strip('\\'))
+        else:
+            self.url_path = os.path.splitext(path.strip('/'))[0]
+            self.file_path = os.path.join(root_dir, path.strip('/'))
         self.published = False
         self._initialize_metadata()
 
     @cached_property
     def html(self):
-        with codecs.open(self.filepath, mode='r',encoding='utf-8') as fin:
-            content = fin.read().split('\n\n', 1)[1].strip()
+        with codecs.open(self.file_path, mode='r',encoding='utf-8') as fin:
+            if is_windows:
+                content = fin.read().split('\r\n\r\n', 1)[1].strip()
+            else:
+                content = fin.read().split('\n\n', 1)[1].strip()
         return markdown.markdown(content, extensions=['codehilite'])
 
     def url(self, _external=False):
-        return url_for('post', path=self.urlpath, _external=_external)
+        return url_for('post', path=self.url_path, _external=_external)
 
     def _initialize_metadata(self):
         content = ''
-        with open(self.filepath, 'r') as fin:
+        with open(self.file_path, 'r') as fin:
             for line in fin:
                 if not line.strip():
                     break
@@ -139,9 +136,8 @@ class Post(object):
         self.__dict__.update(yaml.load(content))
 
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object('config')
 blog = Blog(app, root_dir='posts')
-#import pdb; pdb.set_trace()
 freezer = Freezer(app)
 
 @app.template_filter('date')
@@ -160,7 +156,7 @@ app.jinja_env.globals['url_for_other_page'] = url_for_other_page
 @app.route('/',defaults={'page':1})
 @app.route('/page/<int:page>/')
 def index(page):
-    pagination = Pagination(page,PER_PAGE,len(blog.posts))
+    pagination = Pagination.Pagination(page, PER_PAGE, len(blog.posts))
     posts=[p for i,p in enumerate(blog.posts) if i >= (page-1)*PER_PAGE and i < page*PER_PAGE]
     return render_template('index.html', posts=posts,pagination=pagination,cur_page=page)
 
@@ -170,7 +166,6 @@ def index(page):
 def post(path):
     post = blog.get_post_or_404(path)
     next,pre = blog.get_next_pre_or_404(path)
-    #import pdb; pdb.set_trace()
     return render_template('post.html', post=post,next=next,pre=pre)
 
 
@@ -185,21 +180,17 @@ def tag(tag):
 def tags():
     tags=[tag for p in blog.posts for tag in p.tags]
     tags=collections.Counter(tags)
-    #tags=list(set(tags))
     tags=sorted(tags.iteritems(),key=lambda d:d[1],reverse=True)
-    #import pdb; pdb.set_trace()
     return render_template('tags.html',tags=tags)
 
 @app.route('/archive/')
 def archive():
-    #import pdb; pdb.set_trace()
     archives={}
     for p in blog.posts:
         if not archives.has_key(p.date.year):
              archives[p.date.year]=[]
         archives[p.date.year].append(p)
 
-    #import pdb; pdb.set_trace()
     return render_template('archive.html', archives=archives)
 
 @app.route('/feed.atom')
@@ -219,22 +210,9 @@ def feed():
             published=post.date)
     return feed.get_response()
 
-# @app.route('/search/', methods=['GET','POST'])
-# def search():
-#     if request.method == 'POST':
-#         #some = request.
-#         pass
-#     return redirect('http://www.google.com')
-
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
         freezer.freeze()
-        #import pdb; pdb.set_trace()
-    elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
-        freezer.freeze()
-        #deploy('build')
     else:
-        #import pdb; pdb.set_trace()
-        post_files = [post.filepath for post in blog.posts]
+        post_files = [post.file_path for post in blog.posts]
         app.run(port=8000, debug=True, extra_files=post_files)
-        
