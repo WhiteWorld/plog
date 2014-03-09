@@ -4,14 +4,15 @@
 基于[Flask](http://flask.pocoo.org/), [Frozen-Flask](https://pythonhosted.org/Frozen-Flask/)和[Bootstrap](http://getbootstrap.com/)，
 托管在[Github Pages](http://pages.github.com/)上。
 
+### Demo
+我的[Blog](http://blog.whiteworld.me/).
+
 ### 使用方法
 1.克隆源代码安装依赖
 
-    ```shell
     # 获取源码
     git clone git@github.com:WhiteWorld/blog.git
     git checkout master
-    ```
 
     # 安装库
     pip install -r requirements.txt
