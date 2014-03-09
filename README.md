@@ -7,11 +7,9 @@
 ### 使用方法
 1.克隆源代码安装依赖
 
-    ```shell
     # 获取源码
     git clone git@github.com:WhiteWorld/blog.git
     git checkout master
-    ```
 
     # 安装库
     pip install -r requirements.txt
