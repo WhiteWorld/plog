@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-
+  {% block head %}
+  <title>Just a place.|标签</title>
+  {% endblock head %}
 {% block content %}
     <h2>List of Tags </h2>
     {% for tag,cnt in tags %}

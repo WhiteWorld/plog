@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block head %}
+<title>Just a place.|{{ tag }}
+</title>
+{% endblock head %}
+
 {% block content %}
     <h3>含有<span class="label label-inverse"><em>{{ tag }}</em></span>的文章</h3>
     {% with posts=posts  %}

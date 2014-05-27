@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+
   {% block head %}
   <title>Just a place.</title>
   {% endblock head %}
@@ -28,10 +29,10 @@
         <div class="navbar-inner">
           <a class="brand" href="http://www.whiteworld.me">whiteworld</a>
           <ul class="nav nav-tabs mytab">
-            <li ><a  href="{{ url_for("index") }}" >Home</a></li>
-            <li ><a  href="{{ url_for("tags") }}">Tag</a></li>
-            <li ><a  href="{{ url_for("archive") }}">Archive</a></li>
-            <li ><a  href="{{ url_for("blogroll") }}">Blogroll</a></li>
+            <li ><a  href="{{ url_for("index") }}" >首页</a></li>
+            <li ><a  href="{{ url_for("tags") }}">标签</a></li>
+            <li ><a  href="{{ url_for("archive") }}">归档</a></li>
+            <li ><a  href="{{ url_for("blogroll") }}">链接</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li><a href="https://github.com/WhiteWorld/" title="">Github</a></li>
