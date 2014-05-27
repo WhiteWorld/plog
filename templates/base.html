@@ -10,7 +10,6 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
   {% block css %}
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" >
   <link href="{{ url_for('static', filename='css/my.css') }}" rel="stylesheet" >
   <link href="{{ url_for('static', filename='css/syntax.css') }}" rel="stylesheet" >
@@ -32,6 +31,7 @@
             <li ><a  href="{{ url_for("index") }}" >Home</a></li>
             <li ><a  href="{{ url_for("tags") }}">Tag</a></li>
             <li ><a  href="{{ url_for("archive") }}">Archive</a></li>
+            <li ><a  href="{{ url_for("blogroll") }}">Blogroll</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li><a href="https://github.com/WhiteWorld/" title="">Github</a></li>

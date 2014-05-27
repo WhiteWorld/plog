@@ -193,6 +193,19 @@ def archive():
 
     return render_template('archive.html', archives=archives)
 
+
+@app.route('/blogroll/')
+def blogroll():
+    with codecs.open('plugins/blogroll.md', mode='r',encoding='utf-8') as fin:
+        content = fin.read().strip()
+        # if is_windows:
+        #     content = fin.read().strip()
+        # else:
+        #     content = fin.read().strip()
+    links = markdown.markdown(content, extensions=['codehilite'])
+    return render_template('blogroll.html', links=links)
+
+
 @app.route('/feed.atom')
 def feed():
     feed = AtomFeed('Recent Articles',
