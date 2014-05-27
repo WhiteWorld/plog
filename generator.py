@@ -217,7 +217,7 @@ def feed():
         feed.add(title(post),
             unicode(post.html),
             content_type='html',
-            author='Christopher Roach',
+            author='whiteworld',
             url=post.url(_external=True),
             updated=post.date,
             published=post.date)
