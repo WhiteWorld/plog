@@ -5,7 +5,7 @@
 托管在[Github Pages](http://pages.github.com/)上。
 
 ### Demo
-我的[Blog](http://blog.whiteworld.me/).
+我的[Blog](http://whiteworld.me/).
 
 ### 使用方法
 1.克隆源代码安装依赖
