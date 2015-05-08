@@ -1,4 +1,4 @@
-## Python写的托管在Github上的静态博客
+## Python 静态博客引擎
 
 ### 介绍
 基于[Flask](http://flask.pocoo.org/), [Frozen-Flask](https://pythonhosted.org/Frozen-Flask/)和[Bootstrap](http://getbootstrap.com/)，
